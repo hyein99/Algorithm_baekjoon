@@ -4,21 +4,15 @@ def times(n):
     else:
         return 2**(n-1)+times(n-1)
 
-def orders(n):
-    i=3
+def orders(n, fr, to, sub):
     if n==1:
-        print('1', i)
-    elif n==2:
-        print('1 2')
-        print('1 3')
-        print('2 3')
+        print(fr, to)
+        return
+    orders(n-1, fr, sub, to)
+    print(fr, to)
+    orders(n-1, sub, to, fr)
 
+N = int(input())
 
-
-
-orders(1)
-
-# 1:1 (1>3)
-# 2:3 (1>2, 1>3, 2>3)
-# 3:7 (1>3, 1>2, 3>2, 1>3, 2>1, 2>3, 1>3)
-# 4:15(1>2, 1>3, 2>3, 1>2, 3>1, 3>2, 1>2, 1>3, 2>3, 2>1, 3>1, 2>3, 1>2, 2>3, 1>3)
+print(times(N))
+orders(N, 1, 3, 2)
