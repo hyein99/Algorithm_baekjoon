@@ -15,3 +15,5 @@ for _ in range(num):
             alpha.append(rep)
 
 print(cnt)
+
+# find: index 반환(시간복잡도 높음)
