@@ -1,26 +1,5 @@
 # 회문: 순서대로 읽어도 거꾸로 읽어도 그 내용이 같은 낱말이나 문장
 
-### 큐
-# first in first out
-# enqueue
-# dequeue
-
-### 스택
-# last in first out
-# push: 집어넣기
-# pop: 꺼내기
-
-### 리스트로 큐와 스택 만들기
-### 큐
-# 초기화: qu = []
-# enqueue: qu.append()
-# dequeue: qu.pop(0)
-### 스택
-# 초기화: st = []
-# push: qu.append()
-# pop: qu.pop()
-
-
 def palindrome(s):
     qu = []
     st = []
