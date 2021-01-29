@@ -6,7 +6,7 @@ arr = list(map(int, sys.stdin.readline().split()))
 st = []
 result = [-1]*N
 for i in range(N):
-    # print(i, st)
+    print(i, st, arr[i])
     try:
         while arr[st[-1]] < arr[i]:
             result[st.pop()] = arr[i]

@@ -1,8 +1,7 @@
 import sys
 
-## 시간 초과
+# ## 시간 초과
 # N = int(sys.stdin.readline())
-#
 # nlist = []
 # for _ in range(N):
 #     i=0
@@ -10,14 +9,13 @@ import sys
 #     for i in range(len(nlist)):
 #         if nlist[i][0]>ip[0] or (nlist[i][0]==ip[0] and nlist[i][1]>ip[1]):
 #             break
-#     nlist.insert(i, ip)
+#     nlist.insert(i, ip) # 시간 복잡도 O(N)
 #
 # for j in range(len(nlist)):
 #     print(*nlist[j], sep=' ', end='\n')
 
 
 N = int(sys.stdin.readline())
-
 nlist = []
 for _ in range(N):
     nlist.append(list(map(int, sys.stdin.readline().split())))
