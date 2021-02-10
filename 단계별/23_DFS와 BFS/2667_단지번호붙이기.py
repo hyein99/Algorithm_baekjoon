@@ -9,10 +9,12 @@ def get_danji(i, j, cnt):
     cnt += 1
 
     # 동서남북
-    cnt = get_danji(i, j+1, cnt)
-    cnt = get_danji(i, j-1, cnt)
-    cnt = get_danji(i-1, j, cnt)
-    cnt = get_danji(i+1, j, cnt)
+    for d in dir:
+        cnt = get_danji(i+d[0], j+d[1], cnt)
+    # cnt = get_danji(i, j+1, cnt)
+    # cnt = get_danji(i, j-1, cnt)
+    # cnt = get_danji(i-1, j, cnt)
+    # cnt = get_danji(i+1, j, cnt)
     return cnt
 
 # 지도 받아오기
@@ -22,6 +24,7 @@ for _ in range(N):
     amap.append(list(map(int, sys.stdin.readline().rstrip())))
 # print(amap)
 
+dir = [(1, 0), (-1, 0), (0, 1), (0, -1)]
 cntlist = []
 for i in range(len(amap)):
     for j in range(len(amap[i])):

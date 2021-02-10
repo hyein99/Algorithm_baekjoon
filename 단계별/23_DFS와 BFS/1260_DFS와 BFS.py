@@ -39,6 +39,7 @@ def get_bfs(start):
             done.extend(sorted(tmp))
     return done
 
+
 # 그래프 받아오기
 N, M, V = map(int, sys.stdin.readline().split())
 route = {}   # 그래프 보관할 dic

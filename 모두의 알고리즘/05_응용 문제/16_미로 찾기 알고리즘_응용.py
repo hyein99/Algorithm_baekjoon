@@ -7,7 +7,7 @@ def solve_maze(g, start, end):
     qu.append(start)
     done.add(start)
 
-    while  qu:
+    while qu:
         p = qu.pop(0) # 처리해야할 경로
         v = p[-1]     # 이동경로 p의 마지막 문자가 현재 처리해야할 꼭짓점
         # print(p)
