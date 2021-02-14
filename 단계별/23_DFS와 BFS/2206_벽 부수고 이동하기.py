@@ -29,7 +29,7 @@ def solve_maze():
 
 
 N, M = map(int, sys.stdin.readline().split())
-dis  = [[[1]*M for _ in range(N)] for _ in range(2)] # 벽 뚫기/안뚫기 버전 구분
+dis = [[[1]*M for _ in range(N)] for _ in range(2)] # 벽 뚫기/안뚫기 버전 구분
 
 maze = []
 dir = [(1,0), (-1,0), (0,1), (0,-1)]     # 동서남북

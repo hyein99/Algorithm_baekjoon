@@ -4,7 +4,7 @@ from collections import deque
 # bfs: 큐 활용: 시간초과
 def count_maze(start):
     qu = deque()       # 앞으로 탐색할 경로
-    qu.append(start)   # start:원점
+    qu.append(start)   # start:원점  # [start]로 하면 type(x) tuple 안해도됨
 
     while qu:
         # print(f'qu: {qu}')
@@ -42,7 +42,7 @@ def count_maze_bfs(start):
             return dis[N-1][M-1]
 
         for d in dir:
-            (i, j) = tuple(a+b for a, b in zip(v, d))
+            (i, j) = tuple(a+b for a, b in zip(v, d))  # 함수 만들어서 간단하게
             if 0<=i<N and 0<=j<M and maze[i][j]=='1':
                 maze[i][j] = '0'
                 dis[i][j] = dis[v[0]][v[1]] + 1
