@@ -1,6 +1,8 @@
 import sys
 from collections import defaultdict
 
+# dp[i] = max(dp[i-3]+stairs[i-1]+stairs[i], dp[i-2]+stairs[i])
+
 # 타뷸레이션(상향식)
 dp = defaultdict()
 def get_stairs_sum(n):

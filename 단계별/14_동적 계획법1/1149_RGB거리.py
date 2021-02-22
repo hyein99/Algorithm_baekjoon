@@ -6,6 +6,7 @@ from collections import defaultdict
 def get_cost(N):
     dp = defaultdict(int)
     dp[0] = clist[0]
+    # dp[i][j]: i번째 집에 j번째 색을 선택했을 때 비용의 최소값
     for i in range(1, N):
         dp[i] = [min(dp[i-1][1], dp[i-1][2]) + clist[i][0],
                  min(dp[i-1][0], dp[i-1][2]) + clist[i][1],
