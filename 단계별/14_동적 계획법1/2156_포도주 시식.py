@@ -1,4 +1,5 @@
 # 규칙에 따라 포도주를 마실 때, 최대로 마실 수 있는 포도주의 양을 구하는 문제
+# max(dp[i-1], dp[i-3]+wine[i-2]+wine[i], dp[i-2]+wine[i])
 
 import sys
 from collections import defaultdict

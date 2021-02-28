@@ -18,17 +18,18 @@ import sys
 #     print(dp)
 #     return result
 
+
 def LIS(arr):
-    result = 1
+    # result = 1
     dp = [1 for _ in range(len(arr))]
-    # dp[i]: arr[i]를 마지막 원소로 가지는 부분수열의 길이
+    # dp[i]: arr[i]를 마지막 원소로 가지는 부분수열의 길이의 최대
     for i in range(len(arr)):
         for j in range(i):
             if arr[i] > arr[j] and dp[i] < dp[j]+1: # 증가추세 and 가장 긴 부분수열
                 dp[i] = dp[j]+1
-                if dp[i]>result:
-                    result = dp[i]
-    return result
+                # if dp[i]>result:
+                #     result = dp[i]
+    return max(dp) # result
 
 N = int(sys.stdin.readline())
 arr = list(map(int, sys.stdin.readline().split()))

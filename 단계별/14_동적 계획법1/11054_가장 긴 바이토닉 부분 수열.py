@@ -8,12 +8,13 @@ def LIS(arr):
         for j in range(i):
             if arr[i] > arr[j]:  # 증가 추세
                 dp[i][0] = max(dp[i][0], dp[j][0]+1)
-            elif arr[i] < arr[j]: # 감소추세
+            elif arr[i] < arr[j]: # 감소추세(원래 감소추세 or 이제막감소)
                 dp[i][1] = max(dp[i][1], dp[j][1] + 1, dp[j][0] + 1) # 감소추세 or 증가+감소
 
             if max(dp[i]) > result:
                 result = max(dp[i])
     return result
+
 
 N = int(sys.stdin.readline())
 arr = list(map(int, sys.stdin.readline().split()))
