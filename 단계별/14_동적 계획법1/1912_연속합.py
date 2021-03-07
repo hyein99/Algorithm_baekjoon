@@ -1,6 +1,6 @@
 import sys
 
-# 방법1: 메모이제이션
+# 방법1: 메모이제이션(하향식)
 def sub_sum_1(nums):
     for i in range(1, len(nums)):
         nums[i] += nums[i-1] if nums[i-1] > 0 else 0

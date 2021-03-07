@@ -1,4 +1,5 @@
 # LCS(Longest Common Subsequence)를 구하는 문제
+# solution: 2차원 배열 arr[i][j] str1[i]와 str2[i]를 추가했을 때 최대 길이
 
 import sys
 

@@ -2,6 +2,7 @@ import sys
 
 def pack_knapsack(cargo, cap):
     pack=[]
+    # pack[i][j]: i번째 물건까지 넣을 수 있고 j무게까지 넣을 수 있을 떄 최대 가치
 
     for i in range(len(cargo)+1):
         pack.append([])
@@ -11,8 +12,8 @@ def pack_knapsack(cargo, cap):
             elif cargo[i-1][0] <= c: # 짐을 추가할 수 있는 경우
                 pack[i].append(
                     max(
-                        cargo[i-1][1] + pack[i-1][c-cargo[i-1][0]],
-                        pack[i - 1][c]
+                        cargo[i-1][1] + pack[i-1][c-cargo[i-1][0]], # 현재 짐가치 + 이전 값에서 현재 짐무게 뺐을 때
+                        pack[i-1][c]
                     )
                 )
             else:
