@@ -9,6 +9,7 @@ def merge_sort(a):
     g2 = a[mid:]
     merge_sort(g1)
     merge_sort(g2)
+    print(f'g1: {g1}, g2: {g2}')
 
     # 두 그룹을 하나로 병합
     i1 = 0
@@ -23,6 +24,7 @@ def merge_sort(a):
             a[ia] = g2[i2]
             ia += 1
             i2 += 1
+    print(f'a: {a}, i1: {i1}, i2: {i2}')
     while i1 < len(g1):
         a[ia] = g1[i1]
         ia += 1
@@ -31,6 +33,7 @@ def merge_sort(a):
         a[ia] = g2[i2]
         ia += 1
         i2 += 1
+    print(f'a: {a}')
 
 d = [6, 8, 3, 9, 10, 1, 2, 4, 7, 5]
 merge_sort(d)
