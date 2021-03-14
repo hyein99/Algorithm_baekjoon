@@ -3,33 +3,31 @@ from collections import deque
 
 # version 3
 def solve_maze():
-    cnt = 1 # 벽깨기
     qu = deque()
-    qu.append((0,0,cnt)) # (행, 열, 남은벽깨기)
+    qu.append((0,0,0,1)) # (행, 열, 벽깨기 수, move)
 
     while qu:
-        v = qu.popleft()
-        print(v)
-        if v[0]==N-1 and v[1]==M-1:
-            return dis[v[2]][v[0]][v[1]]
-        for d in dir:
-            i = v[0]+d[0]
-            j = v[1]+d[1]
-            if 0<=i<N and 0<=j<M and dis[v[2]][i][j]==1: # 가능한 경로
-                if maze[i][j]=='0':                      # 정상적인 길
-                    cnt = v[2]
-                elif maze[i][j]=='1' and v[2]==1:        # 벽 뚫기
-                    cnt = 0
-                else:
-                    continue
-                qu.append((i, j, cnt))
-                dis[cnt][i][j] = dis[v[2]][v[0]][v[1]] + 1
-                ###################### ^ 여기서 cnt대신 v[2]들어가는 이유
+        x,y,cnt,move = qu.popleft()
+        # print(v)
+        if x==N-1 and y==M-1:
+            return move
+
+        for d in dir: # 다음에 움질일 방향
+            nx, ny = x+d[0], y+d[1]
+            if 0<=nx<N and 0<=ny<M:                  # 지도 내에 있는지
+                if dis[cnt][nx][ny]==0:              # 지나갔는지
+                    if maze[nx][ny]=='0':            # 벽이 아님
+                        dis[cnt][nx][ny] = 1
+                        qu.append((nx, ny, cnt, move+1))
+                    elif maze[nx][ny]=='1' and cnt==0:   # 벽인데 벽 뚫은 적 없음
+                        dis[cnt][nx][ny] = 1
+                        qu.append((nx, ny, cnt+1, move+1))
+
     return -1
 
 
 N, M = map(int, sys.stdin.readline().split())
-dis = [[[1]*M for _ in range(N)] for _ in range(2)] # 벽 뚫기/안뚫기 버전 구분
+dis = [[[0]*M for _ in range(N)] for _ in range(2)] # 벽 뚫기/안뚫기 버전 구분(방문여부만 확인)
 
 maze = []
 dir = [(1,0), (-1,0), (0,1), (0,-1)]     # 동서남북

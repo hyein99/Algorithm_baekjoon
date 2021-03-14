@@ -8,16 +8,14 @@ def move_night(I, start, end):
     qu.append(start)
 
     while qu:
-        v = qu.popleft()
-        if v == end:
-            return chess[v[0]][v[1]]
+        x, y = qu.popleft()
+        if (x, y) == end:
+            return chess[x][y]
         for d in dir:
-            i = v[0]+d[0]
-            j = v[1]+d[1]
-            # (i, j) = tuple(a+b for a, b in zip(v, d))
-            if 0<=i<I and 0<=j<I and chess[i][j] == 0:
-                qu.append((i,j))
-                chess[i][j] = chess[v[0]][v[1]] + 1
+            nx, ny = x+d[0], y+d[1]
+            if 0<=nx<I and 0<=ny<I and chess[nx][ny] == 0:
+                qu.append((nx,ny))
+                chess[nx][ny] = chess[x][y] + 1
 
 
 T = int(sys.stdin.readline())
