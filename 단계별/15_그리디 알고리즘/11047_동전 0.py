@@ -10,6 +10,7 @@ def coin(N, K):
 
     return cnt
 
+# 입력
 N, K = map(int, sys.stdin.readline().split())
 money = []
 for _ in range(N):
