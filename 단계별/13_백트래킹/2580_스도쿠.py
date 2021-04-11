@@ -28,7 +28,7 @@ def DFS(idx):
     # 종료조건 + 스도쿠 출력
     if idx == len(blank):
         for sd in sdoku:
-            print(*sd, sep=' ')
+            print(*sd)
         flag = True
         return
 

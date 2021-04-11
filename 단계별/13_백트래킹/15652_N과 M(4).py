@@ -4,7 +4,7 @@ from collections import deque
 # dfs: 재귀
 def dfs(self):
     if len(result) == M:
-        print(*result, sep=' ')
+        print(*result)
         return
 
     for i in range(1, N+1):
