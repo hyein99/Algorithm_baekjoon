@@ -19,7 +19,7 @@ while start <= end:
     else:
         start = mid + 1
 
-print(start, end)
+print(start)
 
 
 # 1 2 3

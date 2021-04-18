@@ -14,7 +14,7 @@ from collections import Counter
 # for a in arr:
 #     print(card_number[a], end=' ')
 
-# 풀이 2) 이분탐색
+# 풀이 2) 이분탐색 + count
 def bin_search(target):
     left, right = 0, len(cards) - 1
     while left <= right:
@@ -28,6 +28,21 @@ def bin_search(target):
             return cards[left:right+1].count(target)
     return 0
 
+# 풀이 3) 이분탐색
+# def bin_search(target):
+#     left, right = 0, len(cards) - 1
+#     while left <= right:
+#         mid = left + (right - left) // 2
+#         if cards[mid] < target:
+#             left = mid + 1
+#         elif cards[mid] > target:
+#             right = mid - 1
+        
+#         if left == right == target:
+#             return right - left + 1
+
+#     return 0
+
 # 입력
 N = int(sys.stdin.readline())
 cards = sorted(map(int, sys.stdin.readline().split()))
@@ -36,6 +51,7 @@ arr = map(int, sys.stdin.readline().split())
 
 ndict = dict()
 for a in arr:
+    print(a)
     if a not in ndict:
         ndict[a] = bin_search(a)
     print(ndict[a], end=' ')
