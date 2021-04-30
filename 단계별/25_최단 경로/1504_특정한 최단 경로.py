@@ -12,6 +12,11 @@ def dijkstra(start):
 
     while Q:
         time, node = heapq.heappop(Q)
+
+        ## 다익스트라 핵심 *****
+        if dist[node] < time:
+            continue
+
         for v, w in graph[node]:
             if dist[v] > time+w:     # 다시 돌아 갈 순 있지만 짧을 때만
                 dist[v] = time+w
