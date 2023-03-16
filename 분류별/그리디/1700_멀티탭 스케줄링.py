@@ -13,9 +13,7 @@ useYN = [0 for _ in range(K+1)]  # useYN[1]
 tab_cnt = 0
 answer = 0
 for i in range(K):
-    print(i, device[i])
     device_order[device[i]].popleft()
-    print(useYN)
     if useYN[device[i]] == 1:  # 이미 꽂아 있는 경우
         continue
 
@@ -27,7 +25,7 @@ for i in range(K):
         max_dist = 0  # 제일 늦게 등장하는 거 뽑기
         for j in range(1, K+1):
             if useYN[j] == 1:  # 꽂아 있는 용품 중
-                if len(device_order[j]) == 0:  # 앞으로 등장안하면 뽑아도 됨
+                if len(device_order[j]) == 0:  # 앞으로 등장 안하면 뽑아도 됨
                     pull_device = j
                     break
                 elif device_order[j][0] > max_dist:
@@ -35,7 +33,6 @@ for i in range(K):
                     pull_device = j
         # device_order[pull_device].popleft()
 
-        print('pull', pull_device)
         useYN[pull_device] = 0
         useYN[device[i]] = 1
         answer += 1
@@ -44,8 +41,6 @@ for i in range(K):
 print(answer)
 
 # 3 12
-# 1 2 3 1 2 4 1 3 3 1 2 4  > 왜 4 뽑지?!
-
+# 1 2 3 1 2 4 1 3 3 1 2 4
 #          (2):134
-#                    (4):
-#                      (1):234
+#                    (4): 1
