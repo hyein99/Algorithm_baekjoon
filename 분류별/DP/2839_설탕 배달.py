@@ -1,12 +1,3 @@
-def dp(n):
-    if n <= 2:
-        return -1
-    if arr[n] == -1:
-        arr[n] = min(dp(n - 3) + 1, dp(n - 5) + 1)
-
-    return arr[n]
-
-
 # 입력
 N = int(input())
 
