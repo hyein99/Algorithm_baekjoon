@@ -11,4 +11,4 @@ for cost, customers in cities:
     for i in range(customers, C+100):  # 해당 도시에서 추가되는 고객 수부터
         dp[i] = min(dp[i-customers] + cost, dp[i])
 
-print(min(dp[C:]))  # C이상 인원 중 최소
+print(min(dp[C:]))  # C 이상 인원 중 최소
