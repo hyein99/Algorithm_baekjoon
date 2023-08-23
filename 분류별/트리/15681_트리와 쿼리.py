@@ -1,4 +1,7 @@
+import sys
 from collections import defaultdict
+input = sys.stdin.readline
+sys.setrecursionlimit(1000000000)
 
 def countSubtree(currentNode):
     size[currentNode] = 1
@@ -6,6 +9,7 @@ def countSubtree(currentNode):
         if not size[Node]:
             countSubtree(Node)
             size[currentNode] += size[Node]
+
 
 # input
 N, R, Q = map(int, input().split())
